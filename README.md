@@ -1,18 +1,20 @@
-Cordova Bluebird Plugin
+Plugin Bluebird para Cordova/Capacitor
 ============
 
-This is a Cordova/Phonegap plugin to interact with the BlueBird ruggedized devices' Barcode Scanners and Magnetic Stripe Readers.  It has been tested on a  BP30, with soon to be testing on a BP70.
+> **Nota:** Este es un fork de [https://github.com/BlueFletch/cordova-bluebird-api](https://github.com/BlueFletch/cordova-bluebird-api). Se encuentra en proceso de migración a Capacitor. Por ahora, solo se ha actualizado para hacerlo compatible con versiones de SDK de Android > 34.
+
+Este es un plugin de Cordova/Phonegap para interactuar con los lectores de códigos de barras y lectores de bandas magnéticas de los dispositivos robustos BlueBird. Ha sido probado en un BP30 y próximamente se probará en un BP70.
 
 =============
 
-This plugin is compatible with plugman.  To install, run the following from your project command line: 
+Este plugin es compatible con plugman. Para instalarlo, ejecuta lo siguiente desde la línea de comandos de tu proyecto:
 ```$ cordova plugin add https://github.com/BlueFletch/cordova-bluebird-api.git```
 
 
 ==============
 
-<h3>To Use:</h3>
-You'll register a callback which will be called when a successful "read" event occurs on the scanner or magstripe reader.  
+<h3>Modo de uso:</h3>
+Debes registrar un *callback* que será llamado cuando ocurra un evento de lectura exitoso en el escáner o en el lector de banda magnética.
 
 ```
 function loadBarcode(barcode) {
@@ -78,4 +80,3 @@ distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
-

@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.util.Log;
+import android.os.Build;
 
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
@@ -91,12 +92,21 @@ public abstract class BaseIntentHandler {
 
             resultCallbackMap.put(OPEN_REQUEST_ID, openResult);
 
-            applicationContext.registerReceiver(dataReceiver, new IntentFilter(getCallbackDataReceivedIntent()));
+            // Registro del dataReceiver
+			if (Build.VERSION.SDK_INT >= 34 && applicationContext.getApplicationInfo().targetSdkVersion >= 34) {
+				applicationContext.registerReceiver(dataReceiver, new IntentFilter(getCallbackDataReceivedIntent()), Context.RECEIVER_EXPORTED);
+			} else {
+				applicationContext.registerReceiver(dataReceiver, new IntentFilter(getCallbackDataReceivedIntent()));
+			}
 
-            IntentFilter requestFilter = new IntentFilter();
-            requestFilter.addAction(getCallbackSuccessIntent());
-            requestFilter.addAction(getCallbackFailedIntent());
-            applicationContext.registerReceiver(resultReceiver, requestFilter);
+			IntentFilter requestFilter = new IntentFilter();
+			requestFilter.addAction(getCallbackSuccessIntent());
+			requestFilter.addAction(getCallbackFailedIntent());
+			if (Build.VERSION.SDK_INT >= 34 && applicationContext.getApplicationInfo().targetSdkVersion >= 34) {
+				applicationContext.registerReceiver(resultReceiver, requestFilter, Context.RECEIVER_EXPORTED);
+			} else {
+				applicationContext.registerReceiver(resultReceiver, requestFilter);
+			}
 
             Intent openIntent = new Intent(getOpenIntent());
             openIntent.putExtra(EXTRA_SEQUENCE_ID, OPEN_REQUEST_ID);
