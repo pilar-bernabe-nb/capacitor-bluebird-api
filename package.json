@@ -1,0 +1,25 @@
+{
+	"name": "cordova-capacitor-bluebird-api",
+	"version": "1.0.0",
+	"description": "Plugin para interactuar con lectores de códigos de barras y bandas magnéticas de dispositivos BlueBird, adaptado para Capacitor y SDKs de Android > 34.",
+	"main": "www/bluebird.js",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/BlueFletch/cordova-bluebird-api.git"
+	},
+	"keywords": [
+		"capacitor",
+		"cordova",
+		"bluebird",
+		"barcode-scanner",
+		"msr",
+		"ecosystem:cordova",
+		"cordova-android"
+	],
+	"author": "Pilar BF",
+	"license": "Apache-2.0",
+	"bugs": {
+		"url": "https://github.com/BlueFletch/cordova-bluebird-api/issues"
+	},
+	"homepage": "https://github.com/BlueFletch/cordova-bluebird-api#readme"
+}
